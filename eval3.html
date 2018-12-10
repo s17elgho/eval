@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Ma page</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    var mesphotos = ['https://upload.wikimedia.org/wikipedia/commons/1/1f/Deepweb_graphical_representation.svg','https://www.supinfo.com/articles/resources/214341/8135/0.png ','https://blog.clever-age.com/wp-content/uploads/2014/00/jpg/stored_xss.jpg'];
+    var image_en_cours = 0;
+    function suivante () {
+      image_en_cours = image_en_cours + 1;
+      if (image_en_cours == mesphotos.length) {
+        image_en_cours = 0;
+      }
+      document.getElementById('ecran').src = mesphotos[image_en_cours];
+    }
+    function precedente () {
+      image_en_cours = image_en_cours - 1;
+      if (image_en_cours < 0) {
+        image_en_cours = mesphotos.length-1;
+      }
+      document.getElementById('ecran').src = mesphotos[image_en_cours];
+    }
+  </script>
+</head>
+
+<body>
+
+  <h1>Exploration du web</h1>
+
+
+  <div class="illustration">
+  <img id="ecran" src='https://upload.wikimedia.org/wikipedia/commons/1/1f/Deepweb_graphical_representation.svg'  height="200" />
+  </div>
+
+  <button type="button" class="btn btn-success" onclick="precedente();">image précédente</button>
+  <button type="button" class="btn btn-success" onclick="suivante();">image suivante</button>
+
+  </body>
+</html>
